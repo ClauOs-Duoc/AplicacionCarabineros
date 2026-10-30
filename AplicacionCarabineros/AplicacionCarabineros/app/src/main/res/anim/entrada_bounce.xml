@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    translate: Define una animación de desplazamiento.
+
+    xmlns:android: Declara el espacio de nombres que permite usar los atributos "android:".
+
+    android:fromXDelta="100%p":
+    Define el desplazamiento horizontal inicial.
+    "100%p" equivale al 100% del ancho del contenedor padre.
+    La Activity comienza desplazada hacia el lado derecho.
+
+    android:toXDelta="0":
+    Define el desplazamiento horizontal final.
+    "0" significa que termina en su posición normal.
+
+    android:duration="1000":
+    Establece la duración en milisegundos.
+    1000 milisegundos equivalen a 1 segundo.
+
+    android:interpolator="@android:anim/bounce_interpolator":
+    Controla cómo cambia la posición durante la animación.
+    Utiliza el interpolador de Android que genera rebotes al llegar al destino.
+-->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="100%p"
+    android:toXDelta="0"
+    android:duration="1000"
+    android:interpolator="@android:anim/bounce_interpolator" />

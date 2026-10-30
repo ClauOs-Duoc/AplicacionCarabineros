@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AplicacionCarabineros">
+
+        <!-- Pantalla de bienvenida: es la que se abre al tocar el ícono -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AplicacionCarabineros"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Acceso y usuario -->
+        <activity android:name=".RegistroActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".InicioSesionActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".PrincipalActivity" android:exported="false" />
+        <activity android:name=".PerfilActivity" android:exported="false" />
+        <activity android:name=".EditarUsuarioActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".CerrarSesionActivity" android:exported="false" />
+
+        <!-- Alumnos y grupos (proyecto original) -->
+        <activity android:name=".ListaAlumnosActivity" android:exported="false" />
+        <activity android:name=".AgregarAlumnoActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".DetalleAlumnoActivity" android:exported="false" />
+        <activity android:name=".ListaGruposActivity" android:exported="false" />
+        <activity android:name=".AgregarGrupoActivity" android:exported="false" />
+
+        <!-- Documentos -->
+        <activity android:name=".ListaDocumentosActivity" android:exported="false" />
+        <activity android:name=".CargarDocumentoActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".DetalleDocumentoActivity" android:exported="false" />
+        <activity android:name=".VisorPdfActivity" android:exported="false" />
+
+        <!-- Permite abrir los documentos Word guardados con otra app instalada -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+    <!-- Android 11+: permite que la app "vea" las apps de teléfono y correo para abrirlas -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
+        </intent>
+    </queries>
+
+</manifest>
